@@ -46,7 +46,7 @@ class Perceptron:
       if(sum >= 0):
         result = 1
       else:
-        result = 0
+        result = -1
       print("Iteration = {i}".format(i=i))
       print("x1={x1}, x2={x2}, x3={x3}, b={bias} = {result}".format(x1=x1[i], x2=x2[i], x3=x3[i], bias=line[3], result=result))
 
