@@ -18,7 +18,7 @@ def writeList(lst):
 
 class Perceptron:
 
-  def __init__(self, x1, x2, x3, outputs, learningRate = 0.1   , epochs = 2000):
+  def __init__(self, x1, x2, x3, outputs, learningRate = 0.1   , epochs = 100):
     self.x1 = x1
     self.x2 = x2
     self.x3 = x3

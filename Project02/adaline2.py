@@ -49,12 +49,15 @@ class Adaline:
         result = 1
       else:
         result = -1
-      print("Iteration = {i}".format(i=i))
-      print("x1={x1}, x2={x2}, x3={x3} = {result}".format(x1=x1[i], x2=x2[i], x3=x3[i], result=result))
-
 
   def train(self):
     self.initWeights()
+
+    printOnFile("-> Test Number %d " % (0))
+    printOnFile("Initial Weights -> [%f, %f, %f, %f] " % (self.weights[0], self.weights[1], self.weights[2], self.bias))
+    printOnFile("Learning Rate -> %f" % (self.learningRate))
+    printOnFile("Required Precision -> %f" % (self.requiredPrecision))
+
     e = 0
     currentEQM  = float("inf")
     previousEQM = 0
@@ -73,6 +76,10 @@ class Adaline:
       print("{weight1}*x1 + {weight2}*x2 + {weight3}*x3 + {weight4}*x4 + {bias} = 0".format(weight1=self.weights[0], weight2=self.weights[1], weight3=self.weights[2], weight4=self.weights[3], bias=self.bias))
       if abs(currentEQM - previousEQM) <= self.requiredPrecision:
         break
+    printOnFile("Final Weights -> [%f, %f, %f, %f] " % (self.weights[0], self.weights[1], self.weights[2], self.bias))
+    printOnFile("Epochs -> %d " % (e))
+    printOnFile("Final EQM -> %f " % (abs(currentEQM - previousEQM)))
+
     return [self.weights[0], self.weights[1], self.weights[2], self.weights[3], self.bias]
   #endfunction
 
